@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Pilote index{% endblock %}
+
+{% block body %}
+    <h1>Pilotes Formule 1</h1>
+
+    <table class="table">
+        <thead class="thead-dark text-center">
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Age</th>
+                <th>Ecurie</th>
+                <th>Numero</th>
+                <th>NombreCourse</th>
+                <th>NombrePodium</th>
+                <th>Victoire</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for pilote in pilotes %}
+            <tr class="text-center">
+                <td>{{ pilote.id }}</td>
+                <td>{{ pilote.nom }}</td>
+                <td>{{ pilote.prenom }}</td>
+                <td>{{ pilote.age }}</td>
+                <td>{{ pilote.ecurie }}</td>
+                <td>{{ pilote.numero }}</td>
+                <td>{{ pilote.nombreCourse }}</td>
+                <td>{{ pilote.nombrePodium }}</td>
+                <td>{{ pilote.victoire }}</td>
+                <td>
+                    <a href="{{ path('pilote_show', {'id': pilote.id}) }}">show</a>
+                    <a href="{{ path('pilote_edit', {'id': pilote.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-dark" href="{{ path('pilote_new') }}">Create new</a>
+{% endblock %}
