@@ -7,8 +7,11 @@
     <header>
         <h1>TITRE1</h1>
         <nav>
-            <a href="http://localhost/code-master/cours-symfony2/public/">accueil</a>
-            <a href="http://localhost/code-master/cours-symfony2/public/contact">contact</a>
+            <a href="{{ url('index') }}">accueil</a>
+            <a href="{{ url('contact') }}">contact</a>
+            <a href="{{ url('app_register') }}">register</a>
+            <a href="{{ url('app_login') }}">login</a>
+            <a href="{{ url('app_logout') }}">logout</a>
         </nav>
     </header>
     <main>
